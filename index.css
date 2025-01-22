@@ -6,12 +6,85 @@
     width: 100%;
     height: 150px;
     background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.page-logo {
+    width: 190px;
+    height: 90px;
+    background-color: #D9D9D9;
+}
+
+.page-nav-menu {
+    border: 2px solid black;
+    width: 850px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.secondary-menu {
+    border: 1px solid red;
+    width: 100%;
+    height: 30%;
+}
+
+ .primary-menu {
+    border: 1px solid red;
+    width: 100%;
+    height: 30%;
 }
 
 .wdm-page-content {
     width: 100%;
-    height: 2075px;
+    height: 2905px;
     background-color: #ECECEC;
+}
+
+.page-content-author-info {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.author-info {
+    width: 1120px;
+    height: 320px;
+    background-color: white;
+    border: 1px solid red;
+}
+
+.author-content {
+    width: 1120px;
+    height: 900px;
+    background-color: white;
+    border: 1px solid red;
+}
+
+.quote-carousel {
+    width: 1120px;
+    height: 220px;
+    background-color: white;
+    border: 1px solid red;
+}
+
+.similar-classes {
+    width: 1120px;
+    height: 220px;
+    background-color: white;
+    border: 1px solid red;
+}
+
+.page-content-policy {
+    width: 100%;
+    height: 30%;
+    background-color: white;
 }
 
 .wdm-page-footer {
