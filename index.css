@@ -186,12 +186,14 @@
 }
 
 .membership-price {
-    width: 280px;
+    width: 285px;
     height: 120px;
     display: flex;
+    border: 1px solid black;
+    border-radius: 8px;
     flex-direction: column;
-    /* border: 1px solid black; */
-    border-radius: 30px;
+    overflow: hidden;
+    /* box-sizing: border-box; */
 }
 
 .prices {
@@ -202,13 +204,17 @@
 
 .prices div {
     width: 50%;
-    border: 0.5px solid black;
+    /* border: 0.5px solid black; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: 700;
+}
+
+.prices div:first-child {
+    border-right: 1px solid black;
 }
 
 .prices div span {
@@ -521,13 +527,11 @@
     padding: 10px 20px;
 }
 
-.opening-inverted-comma, .closing-inverted-comma {
-    width: 63px;
-    height: 164px;
-    font-size: 100px;
-    line-height: 200px;
-    font-weight: 400;
-    color: #00ACB4;
+.testimonial-quotes-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .testimonial-quotes {
@@ -536,6 +540,38 @@
     font-weight: 400;
     font-style: italic;
     text-align: center;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0; /* Align all quotes to the same position */
+    left: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: all 0.6s ease-in-out;
+}
+
+.testimonial-quotes.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.testimonial-quotes.exit-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.testimonial-quotes.exit-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.opening-inverted-comma, .closing-inverted-comma {
+    width: 63px;
+    height: 164px;
+    font-size: 100px;
+    line-height: 200px;
+    font-weight: 400;
+    color: #00ACB4;
 }
 
 .testimonial-quotes p:last-child {

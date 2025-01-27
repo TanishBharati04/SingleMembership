@@ -1,23 +1,43 @@
-$(document).ready(function() {
-    var $testimonial = $('.testimonial');
-    var $leftArrow = $('.left-arrow');
-    var $rightArrow = $('.right-arrow');
-    var testimonialWidth = $testimonial.outerWidth(true); 
-    var currentPosition = 0; 
+$(document).ready(function () {
+    let currentIndex = 0; // Track the current quote index
+    const quotes = $(".testimonial-quotes"); // Get all quotes
+    const totalQuotes = quotes.length; // Total number of quotes
 
-    $rightArrow.click(function() {
-        currentPosition -= testimonialWidth;
-        if (currentPosition < -testimonialWidth * ($testimonial.length - 1)) {
-            currentPosition = 0; 
+    // Function to reset classes
+    function resetClasses() {
+        quotes.removeClass("active exit-left exit-right");
+    }
+
+    // Function to show a quote based on index
+    function showQuote(newIndex, direction) {
+        const currentQuote = $(quotes[currentIndex]);
+        const nextQuote = $(quotes[newIndex]);
+
+        // Animate current quote out
+        if (direction === "right") {
+            currentQuote.addClass("exit-left");
+        } else {
+            currentQuote.addClass("exit-right");
         }
-        $testimonial.animate({ left: currentPosition + 'px' }, 500); 
+
+        // After the animation, reset classes and show the next quote
+        setTimeout(() => {
+            resetClasses();
+            nextQuote.addClass("active");
+        }, 600); // Match the transition duration in CSS (0.6s)
+
+        currentIndex = newIndex; // Update current index
+    }
+
+    // Right arrow click
+    $(".right-arrow").click(function () {
+        const newIndex = (currentIndex + 1) % totalQuotes; // Next index
+        showQuote(newIndex, "right");
     });
 
-    $leftArrow.click(function() {
-        currentPosition += testimonialWidth;
-        if (currentPosition > 0) {
-            currentPosition = -testimonialWidth * ($testimonial.length - 1); 
-        }
-        $testimonial.animate({ left: currentPosition + 'px' }, 500);
+    // Left arrow click
+    $(".left-arrow").click(function () {
+        const newIndex = (currentIndex - 1 + totalQuotes) % totalQuotes; // Previous index
+        showQuote(newIndex, "left");
     });
 });
