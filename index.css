@@ -101,7 +101,7 @@
     height: 320px;
     background-color: white;
     /* border: 1px solid red; */
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     padding: 5px 25px;
 }
 
@@ -498,7 +498,7 @@
 }
 
 .quote-carousel.no-gap {
-    margin-top: -73px;
+    margin-top: -77px;
 }
 
 .quote-carousel {
